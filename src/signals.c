@@ -18,6 +18,9 @@ void signal_handler(int signum, siginfo_t *siginfo, void *context) {
     fprintf(stderr, "Caught signal %d\n", signum);
     fprintf(stderr, "Faulting address: %p\n", siginfo->si_addr);
 
+    fprintf(stderr, "Sleeping for 1 second in signal handler...\n");
+    sleep(1);  // 在信号处理函数中等待1秒
+
     // 试图获取一些关于上下文的信息，这部分是可选的
     ucontext_t *uc = (ucontext_t *)context;
     #if defined(__x86_64__) // 仅适用于x86_64架构
