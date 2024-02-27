@@ -1,13 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    int numbers[5] = {1, 2, 3, 4, 5};
-    
-    printf("数组元素: \n");
-    for (int i = 0; i < 5; ++i) {
-        printf("%d ", numbers[i]);
-    }
-    printf("\n");
-    
+    int *ptr = NULL; // 创建一个NULL指针
+    printf("尝试解引用NULL指针...\n");
+    printf("%d\n", *ptr); // 解引用NULL指针，这将导致段错误
     return 0;
 }
